@@ -1,0 +1,33 @@
+@model MiPrimerAppMVC.Models.Producto
+
+@{
+    ViewData["Title"] = "Borrar producto";
+}
+
+<p>@ViewBag.ErrorMessage</p>
+
+<h3> Confirma que desea borrar este producto? </h3>
+
+<div>
+    <dl class= "row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+    </dl>
+</div>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Borrar" class="btn btn-primary" />
+
+</form>
+

@@ -1,0 +1,62 @@
+@model IEnumerable<MiPrimerAppMVC.Models.Producto>
+@{
+    ViewData["Title"] = "Productos";
+}
+
+
+<p>
+    <a asp-action="Create">Agregar producto</a>
+</p>
+<div>
+    <table class="table">
+        <th>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Precio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Activo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaDeAlta)
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </th>
+        <tbody>
+            @foreach (Producto producto in @Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => producto.Nombre)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => producto.Descripcion)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => producto.Precio)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => producto.Activo)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => producto.FechaDeAlta)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@producto.Id">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@producto.Id">Borrar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
